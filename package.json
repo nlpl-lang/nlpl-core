@@ -1,10 +1,13 @@
 {
   "name": "nlpl-core",
-  "version": "0.1",
+  "version": "0.1.0",
   "description": "Nlpl core",
   "main": "index.js",
   "author": "Daniel Garcia",
   "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
   "dependencies": {
     "compromise": "^11.12.0"
   },
