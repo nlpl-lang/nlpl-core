@@ -1,0 +1,8 @@
+{
+  "name": "nlpl-core",
+  "version": "0.1",
+  "description": "Nlpl core",
+  "main": "index.js",
+  "author": "Daniel Garcia",
+  "license": "MIT"
+}
