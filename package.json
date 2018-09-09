@@ -4,5 +4,8 @@
   "description": "Nlpl core",
   "main": "index.js",
   "author": "Daniel Garcia",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "compromise": "^11.12.0"
+  }
 }
