@@ -1,6 +1,6 @@
 const nlp = require('compromise');
 
-const CompromiseDoc = {
+const Sentence = {
   toAst: function(sentence) {
     const doc = nlp(sentence);
     const verbTags = ['Infinitive', 'Verb'];
@@ -19,4 +19,4 @@ const CompromiseDoc = {
   }
 };
 
-module.exports = CompromiseDoc;
+module.exports = Sentence;

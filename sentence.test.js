@@ -1,11 +1,11 @@
-const CompromiseDoc = require('./compromise_doc');
+const Sentence = require('./sentence');
 
 test('blank sentence returns an empty object', () => {
-  expect(CompromiseDoc.toAst('')).toEqual({});
+  expect(Sentence.toAst('')).toEqual({});
 });
 
 test('verb sentence returns ast', () => {
-  expect(CompromiseDoc.toAst('draw')).toEqual({
+  expect(Sentence.toAst('draw')).toEqual({
     function: 'draw',
     arguments: []
   });
