@@ -12,7 +12,7 @@ const Sentence = {
 
     return {
       function: verbs[0].conjugations.Infinitive,
-      arguments: []
+      arguments: doc.nouns().data().map(n => n.singular)
     };
   }
 };
