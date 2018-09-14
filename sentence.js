@@ -11,7 +11,7 @@ const Sentence = {
     }
 
     return {
-      function: verbs[0].text,
+      function: verbs[0].conjugations.Infinitive,
       arguments: []
     };
   }
