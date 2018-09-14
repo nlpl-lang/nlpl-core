@@ -3,17 +3,15 @@ const nlp = require('compromise');
 const Sentence = {
   toAst: function(sentence) {
     const doc = nlp(sentence);
-    const verbTags = ['Infinitive', 'Verb'];
 
-    const terms = doc.terms().data();
-    const firstVerb = terms.find((t) => verbTags.indexOf(t.bestTag) !== -1);
+    const verbs = doc.verbs().data();
 
-    if(!firstVerb) {
+    if(verbs.length === 0) {
       return {};
     }
 
     return {
-      function: firstVerb.text,
+      function: verbs[0].text,
       arguments: []
     };
   }
