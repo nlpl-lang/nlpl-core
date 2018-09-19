@@ -1,7 +1,9 @@
 const Sentence = require('./sentence');
 
 test('blank sentence returns an empty object', () => {
-  expect(Sentence.toAst('')).toEqual({});
+  expect(Sentence.toAst('')).toEqual({
+    error: 'No verb in sentence'
+  });
 });
 
 test('sentence returns verb as function name', () => {

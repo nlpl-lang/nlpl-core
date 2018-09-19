@@ -7,7 +7,7 @@ const Sentence = {
     const verb = doc.verbs().toInfinitive().out();
 
     if(verb === '') {
-      return {};
+      return { error: 'No verb in sentence' };
     }
 
     var sentence_arguments = doc.not('#Verb').terms().out('array');
