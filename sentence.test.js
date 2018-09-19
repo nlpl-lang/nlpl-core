@@ -9,20 +9,20 @@ test('blank sentence returns an empty object', () => {
 test('sentence returns verb as function name', () => {
   expect(Sentence.toAst('draw')).toEqual({
     function: 'draw',
-    arguments: []
+    arguments: {}
   });
 });
 
 test('sentence returns noun as argument', () => {
   expect(Sentence.toAst('draw circle')).toEqual({
     function: 'draw',
-    arguments: ['circle']
+    arguments: { shape: 'circle' }
   });
 });
 
 test('sentence returns non-verb words as arguments', () => {
   expect(Sentence.toAst('draw red circle')).toEqual({
     function: 'draw',
-    arguments: ['red', 'circle']
+    arguments: { color: 'red', shape: 'circle' }
   });
 });
