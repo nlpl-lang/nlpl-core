@@ -4,15 +4,17 @@ const Sentence = {
   toAst: function(sentence) {
     const doc = nlp(sentence);
 
-    const verbs = doc.verbs().data();
+    const verb = doc.verbs().toInfinitive().out();
 
-    if(verbs.length === 0) {
+    if(verb === '') {
       return {};
     }
 
+    var sentence_arguments = doc.not('#Verb').terms().out('array');
+
     return {
-      function: verbs[0].conjugations.Infinitive,
-      arguments: doc.nouns().data().map(n => n.singular)
+      function: verb,
+      arguments: sentence_arguments
     };
   }
 };
