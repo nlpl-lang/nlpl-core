@@ -12,7 +12,7 @@ const Sentence = {
     }
 
     var sentence_arguments = {};
-    var words = doc.not('#Verb').terms().out('array');
+    var words = doc.not('(#Verb|#Determiner|#Preposition)').terms().out('array');
 
     words.forEach(w => sentence_arguments[hypernym.forWord(w)] = w);
 

@@ -26,3 +26,10 @@ test('sentence returns non-verb words as arguments', () => {
     arguments: { color: 'red', shape: 'circle' }
   });
 });
+
+test('sentence returns non-(verb, determiner, preposition) words as arguments', () => {
+  expect(Sentence.toAst('draw a red circle in the middle')).toEqual({
+    function: 'draw',
+    arguments: { color: 'red', shape: 'circle', position: 'middle' }
+  });
+});
