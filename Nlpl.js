@@ -21,7 +21,7 @@ const Nlpl = {
       return {
         normalized: term.text,
         hypernym: hypernym.forWord(term.text),
-        partOfSpeech: term.bestTag,
+        partOfSpeech: term.bestTag.toLowerCase(),
         tags: term.tags,
         word: term.text
       };

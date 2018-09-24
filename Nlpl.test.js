@@ -27,7 +27,7 @@ describe('Nlpl#tokenize', () => {
       {
         hypernym: 'shape',
         normalized: 'circle',
-        partOfSpeech: 'Singular',
+        partOfSpeech: 'singular',
         tags:  ['Noun', 'Singular'],
         word: 'circle'
       }
