@@ -1,6 +1,6 @@
 const ArrayUtils = require('./ArrayUtils');
 const nlp = require('compromise');
-const hypernym = require('./fake-hypernym');
+const hypernym = require('./FakeHypernym');
 
 const Nlpl = {
   tokenize: function(sentence) {

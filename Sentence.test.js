@@ -1,4 +1,4 @@
-const Sentence = require('./sentence');
+const Sentence = require('./Sentence');
 
 test('blank sentence returns an empty object', () => {
   expect(Sentence.toAst('')).toEqual({

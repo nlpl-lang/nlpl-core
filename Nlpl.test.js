@@ -1,4 +1,4 @@
-const Nlpl = require('./nlpl');
+const Nlpl = require('./Nlpl');
 
 describe('Nlpl#tokenize', () => {
   test('blank sentence returns an empty array of tokens', () => {
