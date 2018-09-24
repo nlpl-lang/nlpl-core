@@ -94,4 +94,80 @@ describe('Nlpl#parse', () => {
       }
     });
   });
+
+  test('token array with verb, noun, determiner, preposition', () => {
+    expect(
+      Nlpl.parse([
+        {
+          normalized: 'draw',
+          partOfSpeech: 'verb',
+          tags: ['tag1', 'tag2'],
+          word: 'draw'
+        },
+        {
+          normalized: 'red',
+          hypernym: 'color',
+          partOfSpeech: 'adjective',
+          tags: ['tag1', 'tag2'],
+          word: 'red'
+        },
+        {
+          normalized: 'circle',
+          hypernym: 'shape',
+          partOfSpeech: 'singular',
+          tags: ['tag1', 'tag2'],
+          word: 'circle'
+        },
+        {
+          normalized: 'in',
+          partOfSpeech: 'preposition',
+          tags: ['tag1'],
+          word: 'in'
+        },
+        {
+          normalized: 'the',
+          partOfSpeech: 'determiner',
+          tags: ['tag1'],
+          word: 'the'
+        },
+        {
+          normalized: 'middle',
+          hypernym: 'position',
+          partOfSpeech: 'noun',
+          tags: ['tag1'],
+          word: 'middle'
+        }
+      ])
+    ).toEqual({
+      function: {
+        normalized: 'draw',
+        partOfSpeech: 'verb',
+        tags: ['tag1', 'tag2'],
+        word: 'draw'
+      },
+      arguments: {
+        color: {
+          normalized: 'red',
+          hypernym: 'color',
+          partOfSpeech: 'adjective',
+          tags: ['tag1', 'tag2'],
+          word: 'red'
+        },
+        shape: {
+          normalized: 'circle',
+          hypernym: 'shape',
+          partOfSpeech: 'singular',
+          tags: ['tag1', 'tag2'],
+          word: 'circle'
+        },
+        position: {
+          normalized: 'middle',
+          hypernym: 'position',
+          partOfSpeech: 'noun',
+          tags: ['tag1'],
+          word: 'middle'
+        }
+      }
+    });
+  });
 });

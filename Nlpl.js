@@ -30,7 +30,9 @@ const Nlpl = {
     return tokens;
   },
   parse: function(tokens) {
-    const ast = tokens.reduce(
+    const ast = tokens.filter(
+      (token) => !ArrayUtils.include(['determiner', 'preposition'], token.partOfSpeech)
+    ).reduce(
       (acc, token) => {
         if(token.partOfSpeech === 'verb') {
           acc.function = token;
