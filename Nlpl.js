@@ -14,7 +14,7 @@ const Nlpl = {
           normalized: nlp(term.text).verbs().toInfinitive().out(),
           partOfSpeech: 'verb',
           tags: term.tags,
-          word: term.text
+          original: term.text
         };
       }
 
@@ -23,7 +23,7 @@ const Nlpl = {
         hypernym: hypernym.forWord(term.text),
         partOfSpeech: term.bestTag.toLowerCase(),
         tags: term.tags,
-        word: term.text
+        original: term.text
       };
     });
 

@@ -11,7 +11,7 @@ describe('Nlpl#tokenize', () => {
         normalized: 'draw',
         partOfSpeech: 'verb',
         tags: ['Infinitive', 'PresentTense', 'Verb', 'VerbPhrase'],
-        word: 'draw'
+        original: 'draw'
       }
     ]);
   });
@@ -22,14 +22,14 @@ describe('Nlpl#tokenize', () => {
         normalized: 'draw',
         partOfSpeech: 'verb',
         tags: ['Infinitive', 'PresentTense', 'Verb', 'VerbPhrase'],
-        word: 'draw'
+        original: 'draw'
       },
       {
         hypernym: 'shape',
         normalized: 'circle',
         partOfSpeech: 'singular',
         tags:  ['Noun', 'Singular'],
-        word: 'circle'
+        original: 'circle'
       }
     ]);
   });
@@ -46,14 +46,14 @@ describe('Nlpl#parse', () => {
         normalized: 'draw',
         partOfSpeech: 'verb',
         tags: ['tag1', 'tag2'],
-        word: 'draw'
+        original: 'draw'
       }])
     ).toEqual({
       function: {
         normalized: 'draw',
         partOfSpeech: 'verb',
         tags: ['tag1', 'tag2'],
-        word: 'draw'
+        original: 'draw'
       },
       arguments: {}
     });
@@ -66,14 +66,14 @@ describe('Nlpl#parse', () => {
           normalized: 'draw',
           partOfSpeech: 'verb',
           tags: ['tag1', 'tag2'],
-          word: 'draw'
+          original: 'draw'
         },
         {
           normalized: 'circle',
           hypernym: 'shape',
           partOfSpeech: 'singular',
           tags: ['tag1', 'tag2'],
-          word: 'circle'
+          original: 'circle'
        }
       ])
     ).toEqual({
@@ -81,7 +81,7 @@ describe('Nlpl#parse', () => {
         normalized: 'draw',
         partOfSpeech: 'verb',
         tags: ['tag1', 'tag2'],
-        word: 'draw'
+        original: 'draw'
       },
       arguments: {
         shape: {
@@ -89,7 +89,7 @@ describe('Nlpl#parse', () => {
           hypernym: 'shape',
           partOfSpeech: 'singular',
           tags: ['tag1', 'tag2'],
-          word: 'circle'
+          original: 'circle'
         }
       }
     });
@@ -102,40 +102,40 @@ describe('Nlpl#parse', () => {
           normalized: 'draw',
           partOfSpeech: 'verb',
           tags: ['tag1', 'tag2'],
-          word: 'draw'
+          original: 'draw'
         },
         {
           normalized: 'red',
           hypernym: 'color',
           partOfSpeech: 'adjective',
           tags: ['tag1', 'tag2'],
-          word: 'red'
+          original: 'red'
         },
         {
           normalized: 'circle',
           hypernym: 'shape',
           partOfSpeech: 'singular',
           tags: ['tag1', 'tag2'],
-          word: 'circle'
+          original: 'circle'
         },
         {
           normalized: 'in',
           partOfSpeech: 'preposition',
           tags: ['tag1'],
-          word: 'in'
+          original: 'in'
         },
         {
           normalized: 'the',
           partOfSpeech: 'determiner',
           tags: ['tag1'],
-          word: 'the'
+          original: 'the'
         },
         {
           normalized: 'middle',
           hypernym: 'position',
           partOfSpeech: 'noun',
           tags: ['tag1'],
-          word: 'middle'
+          original: 'middle'
         }
       ])
     ).toEqual({
@@ -143,7 +143,7 @@ describe('Nlpl#parse', () => {
         normalized: 'draw',
         partOfSpeech: 'verb',
         tags: ['tag1', 'tag2'],
-        word: 'draw'
+        original: 'draw'
       },
       arguments: {
         color: {
@@ -151,21 +151,21 @@ describe('Nlpl#parse', () => {
           hypernym: 'color',
           partOfSpeech: 'adjective',
           tags: ['tag1', 'tag2'],
-          word: 'red'
+          original: 'red'
         },
         shape: {
           normalized: 'circle',
           hypernym: 'shape',
           partOfSpeech: 'singular',
           tags: ['tag1', 'tag2'],
-          word: 'circle'
+          original: 'circle'
         },
         position: {
           normalized: 'middle',
           hypernym: 'position',
           partOfSpeech: 'noun',
           tags: ['tag1'],
-          word: 'middle'
+          original: 'middle'
         }
       }
     });
