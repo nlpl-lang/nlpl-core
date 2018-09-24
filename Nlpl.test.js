@@ -34,3 +34,64 @@ describe('Nlpl#tokenize', () => {
     ]);
   });
 });
+
+describe('Nlpl#parse', () => {
+  test('empty token array', () => {
+    expect(Nlpl.parse([])).toEqual({ function: {}, arguments: {} });
+  });
+
+  test('token array with one verb', () => {
+    expect(
+      Nlpl.parse([{
+        normalized: 'draw',
+        partOfSpeech: 'verb',
+        tags: ['tag1', 'tag2'],
+        word: 'draw'
+      }])
+    ).toEqual({
+      function: {
+        normalized: 'draw',
+        partOfSpeech: 'verb',
+        tags: ['tag1', 'tag2'],
+        word: 'draw'
+      },
+      arguments: {}
+    });
+  });
+
+  test('token array with verb and noun', () => {
+    expect(
+      Nlpl.parse([
+        {
+          normalized: 'draw',
+          partOfSpeech: 'verb',
+          tags: ['tag1', 'tag2'],
+          word: 'draw'
+        },
+        {
+          normalized: 'circle',
+          hypernym: 'shape',
+          partOfSpeech: 'singular',
+          tags: ['tag1', 'tag2'],
+          word: 'circle'
+       }
+      ])
+    ).toEqual({
+      function: {
+        normalized: 'draw',
+        partOfSpeech: 'verb',
+        tags: ['tag1', 'tag2'],
+        word: 'draw'
+      },
+      arguments: {
+        shape: {
+          normalized: 'circle',
+          hypernym: 'shape',
+          partOfSpeech: 'singular',
+          tags: ['tag1', 'tag2'],
+          word: 'circle'
+        }
+      }
+    });
+  });
+});

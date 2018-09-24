@@ -28,6 +28,23 @@ const Nlpl = {
     });
 
     return tokens;
+  },
+  parse: function(tokens) {
+    const ast = tokens.reduce(
+      (acc, token) => {
+        if(token.partOfSpeech === 'verb') {
+          acc.function = token;
+        }
+        else {
+          acc.arguments[hypernym.forWord(token.normalized)] = token;
+        }
+
+        return acc;
+      },
+      { function: {}, arguments: {} }
+    );
+
+    return ast;
   }
 };
 
