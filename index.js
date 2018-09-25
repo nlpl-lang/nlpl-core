@@ -1,2 +1,3 @@
-console.log("I'm alive!");
+const Nlpl = require('./Nlpl');
 
+module.exports = Nlpl;
