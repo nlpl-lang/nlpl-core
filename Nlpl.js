@@ -2,7 +2,26 @@ const ArrayUtils = require('./ArrayUtils');
 const nlp = require('compromise');
 const hypernym = require('./FakeHypernym');
 
+const Stdlib = {
+  eval: function(ast) {
+    const div = document.createElement('div');
+    div.style.backgroundColor = ast.arguments.color.normalized;
+
+    div.style.height = '100px';
+    div.style.width = '100px';
+
+    if(ast.arguments.shape.normalized === 'circle') {
+      div.style.borderRadius = '50%';
+    }
+
+    return div;
+  }
+};
+
 const Nlpl = {
+  eval: function(ast) {
+    return Stdlib.eval(ast);
+  },
   tokenize: function(sentence) {
     const doc = nlp(sentence);
 
